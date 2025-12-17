@@ -1,6 +1,6 @@
 # End to End Machine Learning Project
 
-### Structure 
+## Structure 
 ### 📁 Project Structure
 
 - 📁 src  
@@ -20,14 +20,18 @@
 - 📄 requirements.txt  
 
 
-    
-### Environment Setup
+---
+## Environment Setup
 ```
 conda create -p venv python==3.12.12 -y
 
 $ conda activate directory/Projects/ETEML/ml-projects/venv
-
 $ conda deactivate
+$ conda env list 
 
 pip install -r requirement.txt
 ```
+
+
+---
+Source : [End to End Machine Learning Project](https://github.com/krishnaik06/mlproject)
