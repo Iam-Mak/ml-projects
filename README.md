@@ -17,7 +17,8 @@
   - 📄 logger.py  
   - 📄 utils.py  
 - 📄 setup.py  
-- 📄 requirements.txt  
+- 📄 requirements.txt 
+- 📄 app.py 
 
 
 ---
@@ -31,7 +32,6 @@ $ conda env list
 
 pip install -r requirement.txt
 ```
-
 
 ---
 Source : [End to End Machine Learning Project](https://github.com/krishnaik06/mlproject)
