@@ -1,30 +1,35 @@
 import sys
-from src.logger import logging
+import logging
+from src import logger  # ensures logger config is active
 
-def error_message_detail(error, error_details:sys):
-    _,_,exc_tb=error_details.exc_info()
-    file_name=exc_tb.tb_frame.f_code.co_filename
-    error_message="Error occured in python script name [{0}] line number [{1}] error message [{2}]".format(
-    file_name, exc_tb.tb_lineno,str(error))
-
-    return error_message
+def error_message_detail(error, error_details: sys) -> str:
+    """
+    Build a detailed error message including file name, line number, and the error.
+    """
+    _, _, exc_tb = error_details.exc_info()
+    file_name = exc_tb.tb_frame.f_code.co_filename
+    line_number = exc_tb.tb_lineno
+    return f"Exception in [{file_name}] at line [{line_number}]: {error}"
 
 
 class CustomException(Exception):
-    def __init__(self,error_message, error_details:sys):
-        super().__init__(error_message)
-        self.error_message=error_message_detail(error_message, error_details=error_details)
+    """
+    Custom exception class that automatically logs errors
+    with detailed messages and full traceback.
+    """
+    def __init__(self, error_message, error_details: sys):
 
-    def __str__(self):
-        return self.error_message
-    
+        self.error_message = error_message_detail(error_message, error_details)
+        # Initialize parent Exception
+        super().__init__(self.error_message)
+
+        logging.error(f"{self.error_message}", exc_info=True)
+
+
 ''' 
-if __name__=="__main__":
-
+if __name__ == "__main__":
     try:
-        a=1/0
+        x = 1 / 0
     except Exception as e:
-        logging.info("Divide by Zero")
-        raise CustomException(e,sys)
-                     
+        raise CustomException(e, sys)
 '''
