@@ -30,7 +30,7 @@ $ conda activate directory/Projects/ETEML/ml-projects/venv
 $ conda deactivate
 $ conda env list 
 
-pip install -r requirement.txt
+pip install -r requirements.txt
 ```
 
 ---
