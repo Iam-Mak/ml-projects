@@ -7,7 +7,7 @@ log_dir = os.path.join(os.getcwd(), "logs")
 os.makedirs(log_dir, exist_ok=True)
 
 # Create log file with timestamp per day
-LOG_FILE = f"{datetime.now().strftime('%m_%d_%Y')}.log"
+LOG_FILE = f"{datetime.now().strftime('%d_%m_%Y')}.log"
 LOG_FILE_PATH = os.path.join(log_dir, LOG_FILE)
 
 # Create logger
@@ -29,7 +29,7 @@ if not logger.handlers:
     console_handler.setLevel(logging.INFO)     # Only INFO and above appear on screen
     formatter = logging.Formatter("[ %(asctime)s ] %(lineno)d %(name)s - %(levelname)s - %(message)s")
     console_handler.setFormatter(formatter)
-    logging.getLogger().addHandler(console_handler)
+    logger.addHandler(console_handler)
 
 
 ''' 

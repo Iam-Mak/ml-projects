@@ -1,6 +1,5 @@
 import sys
-import logging
-from src import logger  # ensures logger config is active
+from src.logger import logger  # ensures logger config is active
 
 def error_message_detail(error, error_details: sys) -> str:
     """
@@ -23,7 +22,7 @@ class CustomException(Exception):
         # Initialize parent Exception
         super().__init__(self.error_message)
 
-        logging.error(f"{self.error_message}", exc_info=True)
+        logger.error(f"{self.error_message}", exc_info=True)
 
 
 ''' 
